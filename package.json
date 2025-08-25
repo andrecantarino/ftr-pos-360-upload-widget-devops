@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "tsx watch --env-file .env src/server.ts",
     "build": "tsup src --format esm",
-    "start": "node dist/server.mjs"
+    "start": "node dist/server.mjs",
+    "docker:build": "docker build -t rocketseat/widget-server:latest .",
+    "docker:build:version": "docker build -t rocketseat/widget-server:v$(date +%Y%m%d-%H%M%S) .",
+    "docker:build:commit": "docker build -t rocketseat/widget-server:v3-$(git rev-parse --short HEAD) .",
+    "docker:push:latest": "docker push rocketseat/widget-server:latest",
+    "docker:push:version": "docker push rocketseat/widget-server:v$(date +%Y%m%d-%H%M%S)",
+    "docker:push:commit": "docker push rocketseat/widget-server:v3-$(git rev-parse --short HEAD)"
   },
   "keywords": [],
   "author": "",
