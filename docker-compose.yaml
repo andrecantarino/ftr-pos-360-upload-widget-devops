@@ -3,6 +3,7 @@ services:
   db:
     image: postgres:latest
     container_name: postgres
+    #platform: linux/amd64
     restart: unless-stopped
     ports:
       - $POSTGRES_PORT:$POSTGRES_PORT
